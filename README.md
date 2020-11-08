@@ -1,4 +1,4 @@
-# grande-theme-one
+# Grande Design 2021
 
 WordPress/ClassicPress theme for the Greg Grande website. Requires the Grande Design plugin and the Advanced Custom Fields Pro plugin to be installed and activated.
 
