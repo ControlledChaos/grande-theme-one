@@ -26,7 +26,7 @@
 <script>try{Typekit.load({ async: true });}catch(e){}</script>
 
 <script>
-	
+
 // FitText used if the intro slideshow is activated
 	jQuery("#site-title").fitText(0.7, { minFontSize: '24px', maxFontSize: '90px' });
 	jQuery("#description").fitText(1.4, { minFontSize: '14px', maxFontSize: '48px' });
@@ -34,7 +34,7 @@
 
 <!-- Fancybox -->
 <script>
-	
+
 // Initiate touch swipe if 768px or smaller
 var pixelRatio = window.devicePixelRatio || 1;
 if (window.innerWidth/pixelRatio < 769 ) {
@@ -50,7 +50,7 @@ jQuery(document).ready(function() {
 		tpl: {
 			loading  : '<div id="fancybox-loading"><div><i class="fa fa-2x fa-spinner fa-pulse"></i></div></div>'
 		},
-		helpers     : { 
+		helpers     : {
 			overlay : {closeClick: false},
 			title : false
 		},
@@ -83,7 +83,7 @@ jQuery(document).ready(function() {
 		tpl: {
 			loading  : '<div id="fancybox-loading"><div><i class="fa fa-2x fa-spinner fa-pulse"></i></div></div>'
 		},
-		helpers     : { 
+		helpers     : {
 			overlay : {closeClick: true},
 		},
 	});
@@ -103,7 +103,7 @@ jQuery(document).ready(function() {
 		tpl: {
 			loading  : '<div id="fancybox-loading"><div><i class="fa fa-2x fa-spinner fa-pulse"></i></div></div>'
 		},
-		helpers     : { 
+		helpers     : {
 			overlay : {closeClick: false}
 		}
 	});

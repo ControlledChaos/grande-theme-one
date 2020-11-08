@@ -93,7 +93,7 @@ get_header(); ?>
 
 			</article>
 
-		<?php get_template_part( 'inc/copyright' ) ?>
+		<?php get_template_part( 'template-parts/copyright' ) ?>
 
 	</main><!-- main -->
 

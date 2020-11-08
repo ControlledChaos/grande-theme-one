@@ -16,28 +16,14 @@
 <!--[if gt IE 9]><!--><html class="no-js" <?php language_attributes(); ?>><!--<![endif]-->
 
 <head data-template-set="grande">
-	
-<?php get_template_part( 'inc/head-meta' ); ?>
 
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 <link rel="prev" href="<?php echo previous_posts(); ?>">
 <link rel="next" href="<?php echo next_posts(); ?>">
 
-<script>
-// Preload "loading" image
-jQuery.preloadImages = function() {
-	for (var i = 0; i < arguments.length; i++) {
-	jQuery("<img />").attr("src", "wp-content/themes/ccdzen/images/"+arguments[i]);
-	}
-}
-jQuery.preloadImages("logo.jpg");
-</script>
-
-<?php get_template_part( 'inc/bookmarks' ); ?>
-
 <?php wp_head(); ?>
-	
+
 </head>
 
 <body <?php body_class(); ?>>
@@ -54,14 +40,14 @@ jQuery.preloadImages("logo.jpg");
 		<span class="loading"><i class="fa fa-spinner fa-2x fa-pulse"></i></span>
 	</div>
 <?php } ?>
-	
+
 	<div class="wrapper">
-		
+
 		<main>
 			<?php if ( is_front_page() && get_field( 'add_slideshow', 2 ) ) { ?>
-			
+
 				<style>
-				
+
 				.header {
 					position: absolute;
 					width: 100%;
@@ -82,7 +68,7 @@ jQuery.preloadImages("logo.jpg");
 					padding-bottom: 0.2em;
 					line-height: 1em;
 					border-bottom: #fff solid 2px;
-					text-shadow: 
+					text-shadow:
 						#000 0px 0px 10px,
 						rgba(0,0,0,0.5) 3px 3px 7px,
 						rgba(0,0,0,0.3) -1px -1px 7px !important;
@@ -101,7 +87,7 @@ jQuery.preloadImages("logo.jpg");
 					font-size: 3.3vw;
 					text-align: center;
 					text-transform: uppercase;
-					text-shadow: 
+					text-shadow:
 						#000 0px 0px 7px,
 						rgba(0,0,0,0.5) 2px 2px 5px !important;
 				}
@@ -112,11 +98,11 @@ jQuery.preloadImages("logo.jpg");
 						font-size: 4.4rem;
 					}
 				}
-				
+
 				</style>
-			
+
 				<div class="intro">
-					<?php 
+					<?php
 					$introSlides = get_field( 'intro_slides' );
 					if( $introSlides ): ?>
 						<div id="slider" class="flexslider">
@@ -128,25 +114,25 @@ jQuery.preloadImages("logo.jpg");
 									</li>
 								<?php endforeach; ?>
 							</ul>
-							
+
 							<header class="header" role="banner">
-							
+
 								<h1 class="site-title"><?php bloginfo( 'name' ); ?></h1>
 								<h2 class="description"><?php bloginfo( 'description' ); ?></h2>
-								
+
 							</header>
 
 						</div>
 					<?php endif; ?>
 				</div><!-- intro -->
-			
+
 			<?php } elseif ( is_front_page()) { ?>
-			
+
 				<header class="header" role="banner">
-				
+
 					<h1 id="site-title" class="site-title"><?php bloginfo( 'name' ); ?></h1>
 					<h2 id="description" class="description"><?php bloginfo( 'description' ); ?></h2>
-					
+
 				</header>
-			
+
 			<?php } ?>

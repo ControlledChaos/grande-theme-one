@@ -3,9 +3,9 @@
  * @package WordPress
  * @subpackage Grande-Design
  * @since Grande Design 1.0
- * 
+ *
  * Template name: Front
- * 
+ *
  */
 get_header(); ?>
 
@@ -21,7 +21,7 @@ get_header(); ?>
 		<?php } ?>
 		<section id="featured" class="featured">
 			<?php // Use larger heading if slideshow activated.
-			if ( get_field( 'add_slideshow')) { echo '<h2>Featured Projects</h2>'; } else { echo '<h3>Featured Projects</h3>'; } 
+			if ( get_field( 'add_slideshow')) { echo '<h2>Featured Projects</h2>'; } else { echo '<h3>Featured Projects</h3>'; }
 			// Post type arguments
 			$args = array(
 				'post_type' => 'project',
@@ -39,7 +39,7 @@ get_header(); ?>
 			if ( $query->have_posts() ) : ?>
 			<div class="featured-projects">
 				<ul class="featured-projects">
-				<?php while ( $query->have_posts() ) : $query->the_post(); 
+				<?php while ( $query->have_posts() ) : $query->the_post();
 				// Set up post ID
 				global $post;
 				$projectID = $post->ID;
@@ -54,33 +54,34 @@ get_header(); ?>
 							<?php if( $thumb ) { echo wp_get_attachment_image( $thumb, $size );	} ?>
 							<figcaption><?php the_title(); ?></figcaption>
 							<div class="showcase-links">
-							<?php 
+							<?php
 							// Vimeo link
-							if ( $vimeo ) { ?><span><a id="video-link" title="Video" href="https://player.vimeo.com/video/<?php echo $vimeo; ?>?title=0&byline=0&portrait=0&color=cd612f&autoplay=1" class="trailer-link tooltip"><i class="fa fa-video-camera"></i></a>&nbsp;&nbsp;&nbsp;</span><?php } 
+							if ( $vimeo ) { ?><span><a id="video-link" title="Video" href="https://player.vimeo.com/video/<?php echo $vimeo; ?>?title=0&byline=0&portrait=0&color=cd612f&autoplay=1" class="trailer-link tooltip"><i class="fa fa-video-camera"></i></a>&nbsp;&nbsp;&nbsp;</span><?php }
 							// YouTube link, not currently used
-							else if ( $youtube && get_field( 'video_source' ) == 'youtube' ) { ?><span><a id="video-link" title="Video" href="https://www.youtube.com/embed/<?php echo $youtube; ?>?rel=0&autoplay=1" class="trailer-link tooltip"><i class="fa fa-video-camera"></i></a>&nbsp;&nbsp;&nbsp;</span><?php } 
+							elseif ( $youtube && get_field( 'video_source' ) == 'youtube' ) { ?><span><a id="video-link" title="Video" href="https://www.youtube.com/embed/<?php echo $youtube; ?>?rel=0&autoplay=1" class="trailer-link tooltip"><i class="fa fa-video-camera"></i></a>&nbsp;&nbsp;&nbsp;</span><?php }
 							// Set up gallery link
 							$galleryLinks = get_field( 'project_gallery' );
-							$firstImage = $galleryLinks[0];
-							$url = $firstImage[url];
-							if ( get_field( 'project_gallery' )) {	?>
-							<span><a  class="tooltip" title="Stills" href="<?php echo $url; ?>" class="fancybox gallery-link" data-fancybox-group="<?php echo 'gallery-' . $projectID; ?>" rel="<?php echo 'gallery-' . $projectID; ?>"><i class="fa fa-camera"></i></a>&nbsp;&nbsp;&nbsp;</span><?php } 
+
+							if ( get_field( 'project_gallery' )) {
+								$firstImage = $galleryLinks[0];
+								$url = $firstImage['url'];	?>
+							<span><a  class="tooltip" title="Stills" href="<?php echo $url; ?>" class="fancybox gallery-link" data-fancybox-group="<?php echo 'gallery-' . $projectID; ?>" rel="<?php echo 'gallery-' . $projectID; ?>"><i class="fa fa-camera"></i></a>&nbsp;&nbsp;&nbsp;</span><?php }
 							// Link to project page ?>
 							<span><a class="tooltip" title="Details" href="<?php the_permalink(); ?>"><i class="fa fa-info-circle"></i></a></span>
 							</div>
 						</figure>
 					</li>
-				
+
 					<div class="featured-gallery" id="<?php echo 'gallery-' . $projectID; ?>">
-					<?php 
+					<?php
 					// Gallery loop
 					$galleryImages = get_field( 'project_gallery' );
-					if( $galleryImages ): $i = 0; 
+					if( $galleryImages ): $i = 0;
 					foreach( $galleryImages as $galleryImage ): $i++; if($i != 1): ?>
 						<a class="fancybox" data-fancybox-group="<?php echo 'gallery-' . $projectID; ?>" rel="<?php echo 'gallery-' . $projectID; ?>" href="<?php echo $galleryImage['url']; ?>">
 							 <img src="<?php echo $galleryImage['sizes']['large']; ?>" />
 						</a>
-					<?php endif; if (++$i == 12) break; endforeach; endif; 
+					<?php endif; if (++$i == 12) break; endforeach; endif;
 					// Final gallery frame notice ?>
 					<a class="fancybox notice" data-fancybox-group="<?php echo 'gallery-' . $projectID; ?>" rel="<?php echo 'gallery-' . $projectID; ?>" href="<?php echo '#fancybox-link-' . $projectID; ?>"></a>
 						<div id="<?php echo 'fancybox-link-' . $projectID; ?>" class="fancybox-link">
@@ -93,11 +94,11 @@ get_header(); ?>
 				<?php endwhile; wp_reset_postdata(); ?>
 				</ul><!-- featured-projects -->
 			</div><?php endif; ?>
-			
+
 		</section>
 		<?php endwhile; endif; ?>
 		<div class="more"><a href="http://www.greggrandedesign.com/portfolio/">View Portfolio</a></div>
-		<?php get_template_part( 'inc/copyright' ); ?>
+		<?php get_template_part( 'template-parts/copyright' ); ?>
 	</main><!-- main -->
 
 	<?php get_sidebar(); ?>

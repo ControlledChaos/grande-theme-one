@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 			<h2>Oops!</h2>
-		
+
 			<p>We don't find anything at this address. Check out one of my featured projects...</p>
 			<?php
 			$args = array(
@@ -30,7 +30,7 @@
 									<figcaption><?php the_title(); ?></figcaption>
 								</a></figure>
 							</li>
-						
+
 					<?php endwhile; ?>
 					</ul>
 				</div><!-- project-grid -->
@@ -39,11 +39,11 @@
 			</div>
 			<?php endif;
 		wp_reset_postdata(); ?>
-		
-		<?php get_template_part( 'inc/copyright' ) ?>
+
+		<?php get_template_part( 'template-parts/copyright' ) ?>
 
 	</main><!-- main -->
-	
+
 	<?php get_sidebar(); ?>
 
 <?php get_footer(); ?>
