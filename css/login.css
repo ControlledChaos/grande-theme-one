@@ -1,0 +1,125 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700,700italic);
+
+body.login {
+	background: #1c1618;
+	color: #1c1618;
+	font-family: 'Sofia-Pro', 'Open Sans', arial, sans-serif;
+	font-size: 16px;
+	font-weight: normal;
+	font-weight: 400;
+}
+
+body.login a {
+	color: #cd612f;
+}
+
+body.login div#login {}
+
+body.login div#login h1 {}
+
+body.login div#login h1 a {
+	width: 140px;
+	height: 140px;
+	background-image: url(images/logo.jpg);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: 140px;
+}
+
+body.login div#login form#loginform {
+	box-shadow: none;
+	background: inherit;
+}
+
+body.login div#login form#loginform p {}
+
+body.login div#login form#loginform p label {
+	color: rgba(255,255,255,0.9);
+	font-size: 24px;
+	font-weight: 500;
+}
+
+body.login div#login form#loginform input {
+	background: inherit;
+	border: #cd612f solid 1px;
+	color: #cd612f;
+	font-family: 'Open Sans', arial, sans-serif;
+	-webkit-appearance: none;
+}
+
+body.login div#login form#loginform input:focus {
+	background: rgba(255,255,255,0.9);
+	box-shadow: none;
+}
+
+body.login div#login form#loginform input#user_login {}
+
+body.login div#login form#loginform input#user_pass {}
+
+body.login div#login form#loginform p.forgetmenot label {
+	color: rgba(255,255,255,0.9);
+	font-size: 18px;
+	line-height: 22px;
+	font-weight: 500;
+}
+
+body.login div#login form#loginform p.forgetmenot input#rememberme {
+	color: rgba(255,255,255,0.9);
+}
+
+body.login div#login form#loginform p.submit {}
+
+body.login div#login form#loginform p.submit input#wp-submit {
+	border: none;
+    box-shadow: none;
+	background: inherit;
+	border: #cd612f solid 1px;
+	border-radius: 0px;
+	height: auto;
+	padding: 1rem;
+	color: rgba(255,255,255,0.9);
+	text-shadow: none;
+	font-family: 'Sofia-Pro-Soft', 'Open Sans', sans-serif;
+	font-size: 20px;
+	line-height: 20px;
+	font-weight: 400;
+	transition: all .2s;
+}
+
+body.login div#login form#loginform p.submit input#wp-submit:hover{
+	background: #cd612f;
+	color: #1c1618;
+}
+
+body.login #backtoblog a,
+body.login #nav a,
+body.login h1 a {
+	color: rgba(255,255,255,0.9);
+	font-size: 16px;
+}
+
+body.login #backtoblog a:hover,
+body.login #nav a:hover,
+body.login h1 a:hover {
+	color: #cd612f;
+}
+
+body.login #login_error,
+body.login .message {
+    border: none;
+    padding: 12px;
+    margin-left: 0px;
+    background-color: #cd612f;
+	color: #fff;
+    box-shadow: none;
+}
+
+body.login #login_error a,
+body.login .message a {
+	color: #fff;
+}
+
+.wp-core-ui .button-primary.focus, .wp-core-ui .button-primary:focus {
+    border: none;
+    box-shadow: none;
+}

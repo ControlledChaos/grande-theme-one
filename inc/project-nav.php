@@ -1,0 +1,7 @@
+<span class="project-nav-full"><?php if ( (get_adjacent_post( false, '', false )) ) { ?>
+	<div class="prev-project pull-left"><?php next_post_link( '%link', '%title', true, array(), 'priority' ) ?></div><div class="next-project pull-right"><?php previous_post_link( '%link', '%title', true, array(), 'priority' ) ?></div><div class="clearfix"></div>
+<?php } elseif ( (get_adjacent_post( false, '', true )) ){ ?>
+	<div class="next-project pull-right"><?php previous_post_link( '%link', '%title', true, array(), 'priority' ) ?></div><div class="clearfix"></div>
+<?php } elseif ( (get_adjacent_post( true, '', false )) ){ ?>
+	<div class="prev-project pull-left"><?php previous_post_link( '%link', '%title', true, array(), 'priority' ) ?></div><div class="clearfix"></div>
+<?php } ?></span><span class="project-nav-mobile"><?php if ( (get_adjacent_post( false, '', false )) ) { ?>	<div class="prev-project pull-left"><?php next_post_link( '%link', 'Prev', true, array(), 'priority' ) ?></div><div class="next-project pull-right"><?php previous_post_link( '%link', 'Next', true, array(), 'priority' ) ?></div><div class="clearfix"></div><?php } elseif ( (get_adjacent_post( false, '', true )) ){ ?>	<div class="next-project pull-right"><?php previous_post_link( '%link', 'Next', true, array(), 'priority' ) ?></div><div class="clearfix"></div><?php } elseif ( (get_adjacent_post( true, '', false )) ){ ?>	<div class="prev-project pull-left"><?php previous_post_link( '%link', 'Prev', true, array(), 'priority' ) ?></div><div class="clearfix"></div><?php } ?></span>
