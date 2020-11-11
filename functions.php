@@ -1,22 +1,92 @@
 <?php
+/**
+ * Core theme functions file
+ *
+ * @package    Grande_Theme
+ * @subpackage Core
+ * @category   General
+ * @access     public
+ * @since      1.0.0
+ */
+
+// Theme file namespace.
+// namespace Grande_Theme;
+
+// Restrict direct access.
+if ( ! defined( 'ABSPATH' ) ) { exit; }
+
+// Define the minimum required PHP version.
+define( 'GRANDE_PHP_VERSION', '7.3' );
+
+/**
+ * Core theme function
+ *
+ * Loads PHP classes.
+ *
+ * @since  1.0.0
+ * @access public
+ * @global string $pagenow Gets the filename of the current page.
+ * @return void
+ */
+function grande_theme() {
+
+	// Register theme classes.
+	require get_theme_file_path( '/includes/autoload-base.php' );
+	// require get_theme_file_path( '/includes/autoload-customize.php' );
+
+	// Get the filename of the current page.
+	global $pagenow;
+
+	// Instantiate theme classes.
+	Grande_Theme\Classes\Theme     :: instance();
+	// Grande_Theme\Classes\Non_Latin :: instance();
+	// Grande_Theme\Classes\Media     :: instance();
+	// Grande_Theme\Classes\Customize :: instance();
+
+	// Instantiate admin theme classes.
+	if ( is_admin() ) {
+
+		// Run the page header on all screens.
+		// Grande_Theme\Classes\Admin_Pages :: instance();
+
+		// Run the dashboard only on the admin index screen.
+		if ( 'index.php' == $pagenow ) {
+			// Grande_Theme\Classes\Dashboard :: instance();
+		}
+	}
+
+	// Template files.
+	// require get_theme_file_path( '/includes/template-functions.php' );
+	// require get_theme_file_path( '/includes/template-tags.php' );
+
+	// Handle SVG icons.
+	// require get_theme_file_path( '/includes/svg-icons.php' );
+
+	// Custom CSS.
+	// require get_theme_file_path( '/includes/custom-css.php' );
+}
+
+// Run the theme.
+grande_theme();
+
+/**
+ * Get the theme activation class
+ *
+ * Instantiate before the following version compare
+ * to allow the deatcivation methods to run.
+ */
+require get_theme_file_path( '/includes/classes/class-activate.php' );
+
+// Stop here if the minimum PHP version is not met.
+if ( version_compare( phpversion(), GRANDE_PHP_VERSION, '<' ) ) {
+	return;
+}
 
 load_theme_textdomain( 'grande-design', get_template_directory() . '/languages' );
 
 if ( ! isset( $content_width ) ) {
 	$content_width = 1200;
 }
-
-
-// Clean up the <head>
-// -----------------------------------------------------------------
-function grande_remove_head_links() {
-	remove_action( 'wp_head', 'rsd_link' );
-	remove_action( 'wp_head', 'wlwmanifest_link' );
-}
-add_action( 'init', 'grande_remove_head_links' );
-
-remove_action( 'wp_head', 'wp_generator' );
-
 
 // Theme scripts
 // -----------------------------------------------------------------
@@ -62,24 +132,6 @@ function grande_editor_styles() {
 }
 add_action( 'after_setup_theme', 'grande_editor_styles' );
 
-
-// Theme support
-// -----------------------------------------------------------------
-add_theme_support( 'title-tag' );
-add_theme_support( 'post-thumbnails' );
-set_post_thumbnail_size( 640, 480, true );
-add_theme_support( 'automatic-feed-links' );
-
-
-// Title tag filters
-// -----------------------------------------------------------------
-function grande_document_title_separator( $sep ) {
-    $sep = "|";
-	return $sep;
-}
-add_filter( 'document_title_separator', 'grande_document_title_separator' );
-
-
 // Custom login page
 // -----------------------------------------------------------------
 function grande_login() {
@@ -98,34 +150,3 @@ function grande_login_logo_url_title() {
 	return 'Greg Grande';
 }
 add_filter( 'login_headertitle', 'grande_login_logo_url_title' );
-
-
-// Add Custom Menus
-// -----------------------------------------------------------------
-function grande_register_menus() {
-	register_nav_menus(
-	array(
-	'navigation' => __( 'Navigation Menu', 'grande-design' )
-	)
-	);
-}
-add_action( 'init', 'grande_register_menus' );
-
-
-// Custom images
-// -----------------------------------------------------------------
-add_image_size('medium', get_option( 'medium_size_w' ), get_option( 'medium_size_h' ), true );
-add_image_size('large', get_option( 'large_size_w' ), get_option( 'large_size_h' ), true );
-add_image_size( 'Intro Slide', 1000, 563, true );
-add_image_size( 'Poster Preview', 200, 300, true );
-add_image_size( 'Poster', 320, 480, true );
-add_image_size( 'Gallery Preview', 120, 120, true );
-add_image_size( 'Sharing Image', 600, 315, true );
-
-
-// Add excerpts to pages for use in meta data
-// -----------------------------------------------------------------
-function grande_page_excerpts() {
-	add_post_type_support( 'page', 'excerpt' );
-}
-add_action( 'init', 'grande_page_excerpts' );
