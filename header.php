@@ -7,28 +7,45 @@
  * @since Grande Design 1.0
  *
  */
-?><!DOCTYPE html>
 
-<!--[if lt IE 7 ]> <html class="ie ie6 ie-lt10 ie-lt9 ie-lt8 ie-lt7 no-js" <?php language_attributes(); ?>> <![endif]-->
-<!--[if IE 7 ]>    <html class="ie ie7 ie-lt10 ie-lt9 ie-lt8 no-js" <?php language_attributes(); ?>> <![endif]-->
-<!--[if IE 8 ]>    <html class="ie ie8 ie-lt10 ie-lt9 no-js" <?php language_attributes(); ?>> <![endif]-->
-<!--[if IE 9 ]>    <html class="ie ie9 ie-lt10 no-js" <?php language_attributes(); ?>> <![endif]-->
-<!--[if gt IE 9]><!--><html class="no-js" <?php language_attributes(); ?>><!--<![endif]-->
+if ( is_home() && ! is_front_page() ) {
+    $canonical = get_permalink( get_option( 'page_for_posts' ) );
+} elseif ( is_archive() ) {
+    $canonical = get_permalink( get_option( 'page_for_posts' ) );
+} else {
+    $canonical = get_permalink();
+}
 
-<head data-template-set="grande">
+?>
+<!doctype html>
+<?php do_action( 'before_html' ); ?>
+<html <?php language_attributes(); ?> class="no-js">
 
-<link rel="profile" href="http://gmpg.org/xfn/11">
-<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-<link rel="prev" href="<?php echo previous_posts(); ?>">
-<link rel="next" href="<?php echo next_posts(); ?>">
+<head id="<?php echo get_bloginfo( 'wpurl' ); ?>" data-template-set="<?php echo get_template(); ?>">
+	<meta charset="<?php bloginfo( 'charset' ); ?>">
+	<!--[if IE ]>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<![endif]-->
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<?php if ( is_singular() && pings_open() ) {
+		echo sprintf( '<link rel="pingback" href="%s" />', get_bloginfo( 'pingback_url' ) );
+	} ?>
+	<link href="<?php echo $canonical; ?>" rel="canonical" />
+	<?php if ( is_search() ) { echo '<meta name="robots" content="noindex,nofollow" />'; } ?>
 
-<?php wp_head(); ?>
+	<!-- Prefetch font URLs -->
+	<link rel='dns-prefetch' href='//fonts.adobe.com'/>
+	<link rel='dns-prefetch' href='//fonts.google.com'/>
 
+	<?php do_action( 'before_wp_head' ); ?>
+	<?php wp_head(); ?>
+	<?php do_action( 'after_wp_head' ); ?>
 </head>
 
 <body <?php body_class(); ?>>
 
-<?php if( is_front_page()) { ?>
+<?php if ( is_front_page() ) { ?>
 	<div class="loader">
 		<div class="loader-image">
 			<img src="<?php bloginfo( 'template_directory' ); ?>/images/logo.jpg" />
