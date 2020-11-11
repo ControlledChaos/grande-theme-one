@@ -2,9 +2,9 @@
 /**
  * Footer template
  *
- * @package WordPress
+ * @package ClassicPress/WordPress
  * @subpackage Grande-Design
- * @since Grande Design 1.0
+ * @since 1.0.0
  *
  */
 ?>
