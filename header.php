@@ -19,14 +19,14 @@ if ( is_home() && ! is_front_page() ) {
 ?>
 <!doctype html>
 <?php do_action( 'before_html' ); ?>
-<html <?php language_attributes(); ?> class="no-js">
+<html class="no-js" <?php language_attributes(); ?>>
 
 <head id="<?php echo get_bloginfo( 'wpurl' ); ?>" data-template-set="<?php echo get_template(); ?>">
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<!--[if IE ]>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<![endif]-->
-	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 	<?php if ( is_singular() && pings_open() ) {
 		echo sprintf( '<link rel="pingback" href="%s" />', get_bloginfo( 'pingback_url' ) );
