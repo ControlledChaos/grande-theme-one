@@ -10,8 +10,8 @@ get_header(); ?>
 			<?php if ( have_posts() ) : ?>
 			<div class="portfolio-page">
 				<div class="project-grid">
-				<?php while ( have_posts() ) : the_post(); 
-				$thumb = get_field('portfolio_thumbnail');
+				<?php while ( have_posts() ) : the_post();
+				$thumb = get_field( 'portfolio_thumbnail' );
 				$size = 'Poster'; ?>
 					<ul class="portfolio-gallery">
 						<li>
@@ -21,15 +21,15 @@ get_header(); ?>
 							</a></figure>
 						</li>
 					</ul>
-			<?php endwhile; echo '</div><!-- project-grid -->' else : ?>
+			<?php endwhile; echo '</div><!-- project-grid -->'; else : ?>
 			<h2>No Projects Listed</h2>
 			</div>
 			<?php endif; ?>
-		
+
 		<?php get_template_part( 'template-parts/copyright' ) ?>
 
 	</main><!-- main -->
-	
+
 	<?php get_sidebar(); ?>
 
 <?php get_footer(); ?>

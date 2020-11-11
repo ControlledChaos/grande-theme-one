@@ -10,7 +10,7 @@ get_header(); ?>
 			<?php if ( have_posts() ) : ?>
 			<div class="portfolio-page">
 			<?php while ( have_posts() ) : the_post(); 
-			$thumb = get_field('portfolio_thumbnail');
+			$thumb = get_field( 'portfolio_thumbnail' );
 			$size = 'Poster'; ?>
 
 				<figure id="project-<?php the_ID(); ?>"><a href="<?php the_permalink(); ?>">

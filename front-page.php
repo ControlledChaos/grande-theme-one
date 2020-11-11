@@ -21,7 +21,7 @@ get_header(); ?>
 		<?php } ?>
 		<section id="featured" class="featured">
 			<?php // Use larger heading if slideshow activated.
-			if ( get_field( 'add_slideshow')) { echo '<h2>Featured Projects</h2>'; } else { echo '<h3>Featured Projects</h3>'; }
+			if ( get_field( 'add_slideshow' )) { echo '<h2>Featured Projects</h2>'; } else { echo '<h3>Featured Projects</h3>'; }
 			// Post type arguments
 			$args = array(
 				'post_type' => 'project',
@@ -107,7 +107,7 @@ get_header(); ?>
 
 // Used if the intro slideshow is activated
 jQuery(window).load(function() {
-  jQuery('.flexslider').flexslider({
+  jQuery( '.flexslider' ).flexslider({
     slideshow: true,
 	slideshowSpeed: 5000,
     animation: "fade",

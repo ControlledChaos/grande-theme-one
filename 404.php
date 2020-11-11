@@ -22,7 +22,7 @@
 				<div class="project-grid">
 					<ul class="portfolio-gallery">
 					<?php while ( $query->have_posts() ) : $query->the_post();
-					$thumb = get_field('portfolio_thumbnail');
+					$thumb = get_field( 'portfolio_thumbnail' );
 					$size = 'Poster'; ?>
 							<li>
 								<figure id="project-<?php the_ID(); ?>"><a href="<?php the_permalink(); ?>">

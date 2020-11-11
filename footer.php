@@ -55,9 +55,9 @@ jQuery(document).ready(function() {
 			title : false
 		},
 		afterShow: function() {
-			jQuery('.fancybox-wrap').swipe({
+			jQuery( '.fancybox-wrap' ).swipe({
 				swipe : function(event, direction) {
-					if (direction === 'left' || direction === 'up') {
+					if (direction === 'left' || direction === 'up' ) {
 						jQuery.fancybox.prev( direction );
 						} else {
 						jQuery.fancybox.next( direction );
@@ -125,7 +125,7 @@ if (window.innerWidth/pixelRatio > 768 ) {
 <script>
 // Loadung screen
 jQuery(window).load(function() {
-	jQuery('.loader').fadeOut('slow');
+	jQuery( '.loader' ).fadeOut( 'slow' );
 })
 </script>
 

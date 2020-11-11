@@ -12,7 +12,7 @@ get_header(); ?>
 				<div class="project-grid">
 					<ul class="portfolio-gallery">
 					<?php while ( have_posts() ) : the_post(); 
-					$thumb = get_field('portfolio_thumbnail');
+					$thumb = get_field( 'portfolio_thumbnail' );
 					$size = 'Poster'; ?>
 						<li>
 							<figure id="project-<?php the_ID(); ?>"><a href="<?php the_permalink(); ?>">
