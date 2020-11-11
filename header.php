@@ -91,7 +91,7 @@ if ( is_home() && ! is_front_page() ) {
 						rgba(0,0,0,0.3) -1px -1px 7px !important;
 				}
 
-				@media screen and (min-width: 1281px) {
+				@media screen and  (min-width: 1281px ) {
 
 					h1.site-title {
 						font-size: 9rem;
@@ -109,7 +109,7 @@ if ( is_home() && ! is_front_page() ) {
 						rgba(0,0,0,0.5) 2px 2px 5px !important;
 				}
 
-				@media screen and (min-width: 1281px) {
+				@media screen and ( min-width: 1281px ) {
 
 					h2.description {
 						font-size: 4.4rem;
