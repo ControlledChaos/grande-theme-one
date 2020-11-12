@@ -3,7 +3,7 @@
  * Grande_Theme theme class
  *
  * Adds theme support, enqueues styles & scripts, registers
- * navigation menus & widget areas, all the typical theme stuff.
+ * navigation menus & widget areas, typical theme stuff.
  *
  * @package    Grande_Theme
  * @subpackage Classes
