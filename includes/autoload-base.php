@@ -20,6 +20,7 @@ define( 'GRANDE_CLASS', get_theme_file_path() . '/includes/classes/class-' );
 // Array of classes to register.
 const CLASSES = [
 	'Grande_Theme\Classes\Theme'               => GRANDE_CLASS . 'theme.php',
+	'Grande_Theme\Classes\Admin'               => GRANDE_CLASS . 'admin.php',
 	// 'Grande_Theme\Classes\Non_Latin'           => GRANDE_CLASS . 'non-latin.php',
 	// 'Grande_Theme\Classes\SVG_Icons'            => GRANDE_CLASS . 'svg-icons.php',
 	// 'Grande_Theme\Classes\Media'            => GRANDE_CLASS . 'media.php',

@@ -39,6 +39,7 @@ function grande_theme() {
 
 	// Instantiate theme classes.
 	Grande_Theme\Classes\Theme     :: instance();
+	Grande_Theme\Classes\Admin     :: instance();
 	// Grande_Theme\Classes\Non_Latin :: instance();
 	// Grande_Theme\Classes\Media     :: instance();
 	// Grande_Theme\Classes\Customize :: instance();
@@ -126,11 +127,6 @@ function grande_additional_styles()
 	wp_enqueue_style( 'other',        get_template_directory_uri() . '/css/other.css' );
 }
 add_action( 'wp_enqueue_scripts', 'grande_additional_styles' );
-
-function grande_editor_styles() {
-	add_editor_style();
-}
-add_action( 'after_setup_theme', 'grande_editor_styles' );
 
 // Custom login page
 // -----------------------------------------------------------------
