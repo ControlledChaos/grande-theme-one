@@ -3,8 +3,10 @@
  */
 .site-title {
 	/* Match <p> tag to <h1> tag on front page */
-	font-size: 2em;
-	font-weight: bold;
+	margin-bottom: 0;
+	font-size: 8rem;
+	font-weight: 500;
+	line-height: 1em;
 
 	& a {
 		color: inherit;
@@ -14,8 +16,9 @@
 
 .site-description {
 	margin: 0;
-}
-
-.site-header-image {
-	margin: 1em 0;
+	font-family: 'Sofia-Pro', 'Open Sans', arial, sans-serif;
+	font-size: 4rem;
+	font-weight: normal;
+	font-weight: 300;
+	padding-left: .6rem;
 }
