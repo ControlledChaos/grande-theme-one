@@ -207,20 +207,6 @@ section.featured {
 	overflow: hidden;
 }
 
-h1.site-title {
-	font-size: 8rem;
-	margin-bottom: 0;
-	line-height: 1em;
-}
-
-h2.description {
-	font-family: 'Sofia-Pro', 'Open Sans', arial, sans-serif;
-	font-size: 4rem;
-	font-weight: normal;
-	font-weight: 300;
-	padding-left: .6rem;
-}
-
 @media screen and (max-width: 959px) {
 
 	h1.site-title {
