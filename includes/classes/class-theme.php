@@ -1,6 +1,6 @@
 <?php
 /**
- * Grande_Theme theme class file
+ * Grande_Theme theme class
  *
  * Adds theme support, enqueues styles & scripts, registers
  * navigation menus & widget areas, all the typical theme stuff.
@@ -220,6 +220,7 @@ class Theme {
 		add_theme_support( 'customize-selective-refresh-widgets' );
 
 		add_theme_support( 'editor-styles' );
+		add_theme_support( 'dark-editor-style' );
 	}
 
 	/**
@@ -394,11 +395,11 @@ class Theme {
 	 */
 	public function editor_styles() {
 
-		$classic_editor_styles = [
-			'/assets/css/editor-style-classic.css',
+		$editor_styles = [
+			'/assets/css/editor.min.css',
 		];
 
-		add_editor_style( $classic_editor_styles );
+		add_editor_style( $editor_styles );
 	}
 
 	/**
@@ -414,7 +415,7 @@ class Theme {
 	 */
 	public function editor_customizer_styles( $mce_init ) {
 
-		$styles = wilbur_get_customizer_css( 'classic-editor' );
+		$styles = wilbur_get_customizer_css( 'editor' );
 
 		if ( ! isset( $mce_init['content_style'] ) ) {
 			$mce_init['content_style'] = $styles . ' ';
